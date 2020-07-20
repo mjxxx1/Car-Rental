@@ -19,7 +19,7 @@ Frontend: based on Admin LTE (https://adminlte.io/) + Gaas (https://colorlib.com
 ## Features
 * retrieve cars from database and based on it display list of offer names (i.e. Skoda Citigo, Peugeot 208, Volkswagen Golf GTI, Toyota Auris electric etc), 
 * allow filter this list - using air conditioning, transmission, segment, type of fuel, number of passengers
-![alt text][logo]
+![alt text][CarsListForCustomers]
 #### In progress:
 * Authorisation - 3 types of users: \
 -client - he is allow to rent vahicles \
@@ -28,4 +28,4 @@ Frontend: based on Admin LTE (https://adminlte.io/) + Gaas (https://colorlib.com
 *
 
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[CarsListForCustomers]: https://github.com/mjxxx1/Car-Rental/tree/master/CarRental/wwwroot/img/App%20screens/CarsList.png "CarsListForCustomers"
