@@ -1,0 +1,26 @@
+﻿@using CarRental;
+@model OfferNamesList
+
+<div class="comments-area">
+    <h3 class="mb-10 title_color">@Model.OfferName</h3>
+    <div class="row">
+        @{
+                String img64 = Convert.ToBase64String(Model.Image);
+                String img64Url = string.Format("data:image/png;base64,{0}", img64);
+         }
+        <div class="col-md-2">
+                <img class="img-fluid" alt="Embedded image" src="@img64Url" />
+            </div>
+        <div class="col-md-9 mt-sm-20 left-align-p">
+            <div class="row-in-table"><div class="box_for_miniature_images"><img src="~/img/elements/vehicle_transmission.png" /></div>@Model.TransmissionType</div>
+            <div class="row-in-table"><div class="box_for_miniature_images"><img src="~/img/elements/air-conditioner.png" /></div>@Model.AirConditionerType</div>
+            <div class="row-in-table"><div class="box_for_miniature_images"><img src="~/img/elements/car-door.png" /></div>@Model.NoOfDoors</div>
+            <div class="row-in-table"><div class="box_for_miniature_images"><img src="~/img/elements/car_seat.png" /></div>@Model.NoOfPassengers</div>
+            <div class="row-in-table">@Model.ExapmlePrice</div>
+            <div class="row-in-table"><a class="medium_primary_btn" href="#"><span>Details</span></a>
+                                      <a class="medium_primary_btn" href="#"><span>Check Availibility</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+

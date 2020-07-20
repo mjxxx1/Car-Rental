@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Cars\Commands\CreateCar\" />
+    <Folder Include="Cars\Commands\DeleteCar\" />
+    <Folder Include="Cars\Commands\UpdateCar\" />
+    <Folder Include="Cars\Queries\GetCarDetail\" />
+    <Folder Include="Cars\Queries\GetCarsList\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Domain\Domain.csproj" />
+    <ProjectReference Include="..\..\Persistence\Persistence\Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

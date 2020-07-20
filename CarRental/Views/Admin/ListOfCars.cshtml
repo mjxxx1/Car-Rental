@@ -1,0 +1,69 @@
+﻿@using CarRental;
+@model IEnumerable<Car>
+@{
+    ViewData["Title"] = "ListOfCars";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Content Wrapper. Contains page content -->
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">DataTable with default features</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Etykietka</th>
+                        <th>VIN</th>
+                        <th>Registration number</th>
+                        <th>Base</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Car item in Model)
+                    {
+                        <tr>
+                            <td>Brand</td>
+                            <td>Brand</td>
+                            <td>Brand</td>
+                            <td>@item.VIN</td>
+                            <td>@item.RegistrationNumber</td>
+                            <td>Brand</td>
+                            <td style="max-width: 80px;text-align:center;">
+                                    <div style="display: inline-block; width:40%;">
+                                        <button type="button" class="btn btn-block bg-gradient-secondary btn-sm">Details</button>
+                                    </div>
+                                    <div style="display: inline-block; width:40%;">
+                                        <button type="button" class="btn btn-block bg-gradient-secondary btn-sm">Delete</button>
+                                    </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Etykietka</th>
+                        <th>VIN</th>
+                        <th>Registration number</th>
+                        <th>Base</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</section>
+
+
+

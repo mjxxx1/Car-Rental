@@ -1,0 +1,14 @@
+﻿@using CarRental;
+@model CarRental.Core.Application.Cars.Queries.GetCarsList.CarListDTO
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@foreach (OfferNamesList item in Model.offerNames)
+{
+    @Html.Partial("CarDetails", item);
+    @ViewBag.Test
+}
+

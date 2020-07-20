@@ -1,0 +1,143 @@
+﻿@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model CarRental.Core.Application.Cars.Queries.GetCarsList.CarListDTO
+<h2>
+    Our cars <br>
+</h2>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim.
+    sed do eiusmod tempor incididunt.
+</p>
+<form asp-controller="Car" asp-action="List" method="post">
+    <div class="element-wrap">
+        <div class="margin_auto">
+            <div class="row" style="margin: auto;">
+                <div class="single-element-widget">
+                    <h4 class="mb-20">Transmission</h4>
+                    <div class="default-select" id="default-select" name="Transmission">
+                        <select typeof="text" name="TransmissionType">
+                            @foreach (string str in Model.transmissionType)
+                            {
+                                bool isSelected = false;
+                                
+                                @if (str == Model.selectedParameters.TransmissionType)
+                                {
+                                    isSelected = true;
+                                }
+                                <option selected="@isSelected" value=@str>
+                                    @str
+                            </option>
+                        }
+                        </select>
+                    </div>
+                </div>
+                <div class="space_between_selectboxes"></div>
+                <div class="single-element-widget">
+                    <h4 class="mb-20">Air Conditioner</h4>
+                    <div class="default-select" id="default-select2" name="AirConditioner">
+                        <select typeof="text" name="airConditionerType">
+                            @foreach (string str in Model.airConditionerType)
+                            {
+                                bool isSelected = false;
+
+                                @if (str == Model.selectedParameters.AirConditionerType)
+                                {
+                                    isSelected = true;
+                                }
+                                <option selected="@isSelected" value=@str>
+                                    @str
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="space_between_selectboxes"></div>
+                <div class="single-element-widget">
+                    <h4 class="mb-20">Passengers</h4>
+                    <div class="default-select" id="default-select" name="Passengers">
+                        <select typeof="text" name="noOfPassengers">
+                            @foreach (string str in Model.noOfPassengers)
+                            {
+                                bool isSelected = false;
+
+                                @if (str == Model.selectedParameters.Passengers)
+                                {
+                                    isSelected = true;
+                                }
+                                <option selected="@isSelected" value=@str>
+                                    @str
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="space_between_selectboxes"></div>
+                <div class="single-element-widget">
+                    <h4 class="mb-20">Segment</h4>
+                    <div class="default-select" id="default-select" name="Segment">
+                        <select typeof="text" name="segment">
+                            @foreach (string str in Model.segment)
+                            {
+                                bool isSelected = false;
+
+                                @if (str == Model.selectedParameters.Segment)
+                                {
+                                    isSelected = true;
+                                }
+                                <option selected="@isSelected" value=@str>
+                                    @str
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="space_between_selectboxes"></div>
+                <div class="single-element-widget">
+                    <h4 class="mb-20">Fuel Type</h4>
+                    <div class="default-select" id="default-select" name="FuelType">
+                        <select typeof="text" name="fuelType">
+                            @foreach (string str in Model.fuelType)
+                            {
+                                bool isSelected = false;
+
+                                @if (str == Model.selectedParameters.FuelType)
+                                {
+                                    isSelected = true;
+                                }
+                                <option selected="@isSelected" value=@str>
+                                    @str
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="space_between_selectboxes"></div>
+                <div class="single-element-widget">
+                    <h4 class="mb-20">City</h4>
+                    <div class="default-select" id="default-select">
+                        <select>
+                                        @*  TODO add baseCity
+                        @foreach (string str in Model.transmissionType)
+                        {
+                            bool isSelected = false;
+
+                            @if (str == Model.selectedParameters.TransmissionType)
+                            {
+                                isSelected = true;
+                            }
+                            <option selected="@isSelected" value=@str>
+                                @str
+                        </option>
+                            }*@
+                            <option value="1">Warsaw</option>
+                            <option value="2">Gdansk</option>
+                            <option value="3">Cracow</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="space_between_selectboxes"></div>
+                <div class="div_apply_filters"><button type="submit" class="medium_primary_btn"><span>Apply filters</span></button></div>
+            </div>
+        </div>
+    </div>
+</form>
