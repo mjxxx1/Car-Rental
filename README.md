@@ -5,7 +5,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Features](#features)
-* [Database Schema](#Database Schema)
+* [Database schema](#Database-schema)
 
 ## General info
 Car Rental is application designed for virtual-company renting vehicles. It makes for presentating and inform about technical details of vehicles and allows customers book them. Furthemore - it has a panel designing for manage.
@@ -30,5 +30,5 @@ Frontend: based on Admin LTE (https://adminlte.io/) + Gaas (https://colorlib.com
 ![](CarRental/wwwroot/img/App%20screens/Car%20Rental%20users.png?raw=true)
 *
 
-## Database Schema
+## Database schema
 ![](CarRental/wwwroot/img/App%20screens/DBSchema.png?raw=true)
