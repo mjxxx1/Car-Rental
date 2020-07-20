@@ -6,23 +6,22 @@
 * [Technologies](#technologies)
 * [Features](#features)
 * [Database Schema](#Database Schema)
-\
-\
+
 ## General info
 Car Rental is application designed for virtual-company renting vehicles. It makes for presentating and inform about technical details of vehicles and allows customers book them. Furthemore - it has a panel designing for manage.
----
+
 ## Technologies: 
 ASP .NET Core 2.1 + MS SQL Server 2014 + HTML/CSS \
 Frameworks: Entity Framework Core, MediatR, \
 design patterns: MVC, Dependency Injection, CQRS, \
 unit tests: xUnit, AutoFixture \
 Frontend: based on Admin LTE (https://adminlte.io/) + Gaas (https://colorlib.com/) 
----
+
 ## Features
 * retrieve cars from database and based on it display list of offer names (i.e. Skoda Citigo, Peugeot 208, Volkswagen Golf GTI, Toyota Auris electric etc), 
 * allow filter this list - using air conditioning, transmission, segment, type of fuel, number of passengers \
 ![](CarRental/wwwroot/img/App%20screens/CarsList.png?raw=true)
----
+
 #### In progress:
 * Authorisation - 3 types of users: \
 -client - he is allow to rent vahicles \
@@ -30,6 +29,6 @@ Frontend: based on Admin LTE (https://adminlte.io/) + Gaas (https://colorlib.com
 -administrator - he is allow to manage vehicles in all localizations, \
 ![](CarRental/wwwroot/img/App%20screens/Car%20Rental%20users.png?raw=true)
 *
----
+
 ## Database Schema
 ![](CarRental/wwwroot/img/App%20screens/DBSchema.png?raw=true)
