@@ -57,7 +57,6 @@
     <Folder Include="Core\Application\Cars\Queries\GetCarDetail\" />
     <Folder Include="Infrastructur\Infrastructure\" />
     <Folder Include="wwwroot\img\cars\" />
-    <Folder Include="wwwroot\img\App screens\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="http://json.schemastore.org/appsettings" /></VisualStudio></ProjectExtensions>
