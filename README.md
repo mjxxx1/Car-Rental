@@ -15,7 +15,7 @@ ASP .NET Core 2.1 + MS SQL Server 2014 + HTML/CSS \
 Frameworks: Entity Framework Core, MediatR, \
 design patterns: MVC, Dependency Injection, CQRS, \
 unit tests: xUnit, AutoFixture \
-Frontend: based on Admin LTE (https://adminlte.io/) + Gaas (https://colorlib.com/) 
+Frontend: based on Admin LTE (https://adminlte.io/) + Gaas (https://colorlib.com/) + Razor pages
 
 ## Features
 * retrieve cars from database and based on it display list of offer names (i.e. Skoda Citigo, Peugeot 208, Volkswagen Golf GTI, Toyota Auris electric etc), 

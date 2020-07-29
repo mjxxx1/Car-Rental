@@ -13,7 +13,6 @@ namespace CarRental
             Pricelists = new HashSet<Pricelist>();
             CarVersions = new HashSet<CarVersion>();
         }
-        [Key]
         public int OfferNameID { get; set; }
 
         public string Name { get; set; }

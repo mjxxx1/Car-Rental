@@ -29,12 +29,12 @@ namespace CarRental.Models.ViewModels
             foreach (Car c in Cars)
             {
                 row.offerName = c.Version.OfferName.Name;
-                if (c.Version.Transmission == "manual")
+                if (c.Version.TransmissionType.ToString() == "manual")
                 {
                     row.manualTransmission = true;
                 }
 
-                if (c.Version.Transmission == "automatic")
+                if (c.Version.TransmissionType.ToString() == "automatic")
                 {
                     row.automatTransmission = true;
                 }

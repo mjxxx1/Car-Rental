@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20200704184725_CreateDB")]
+    [Migration("20200729122943_CreateDB")]
     partial class CreateDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,8 +23,9 @@ namespace CarRental.Migrations
 
             modelBuilder.Entity("CarRental.Car", b =>
                 {
-                    b.Property<string>("VIN")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("CarID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CarVersionID");
 
@@ -34,13 +35,19 @@ namespace CarRental.Migrations
 
                     b.Property<DateTime?>("DateOfPurchase");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
                     b.Property<string>("RegistrationNumber");
 
                     b.Property<string>("Status");
 
-                    b.HasKey("VIN");
+                    b.Property<string>("VIN")
+                        .IsRequired()
+                        .HasColumnType("char(17)");
+
+                    b.HasKey("CarID");
 
                     b.HasIndex("CarVersionID");
 
@@ -53,7 +60,7 @@ namespace CarRental.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AirConditioning");
+                    b.Property<int>("AirConditioningType");
 
                     b.Property<int?>("BootCapacity");
 
@@ -65,11 +72,13 @@ namespace CarRental.Migrations
 
                     b.Property<int?>("EngineSize");
 
-                    b.Property<string>("Fuel");
-
                     b.Property<float?>("FuelConsumptionPer100km");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<int>("FuelType");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Model");
 
@@ -79,7 +88,7 @@ namespace CarRental.Migrations
 
                     b.Property<string>("Segment");
 
-                    b.Property<string>("Transmission");
+                    b.Property<int>("TransmissionType");
 
                     b.Property<string>("Type");
 
@@ -98,7 +107,8 @@ namespace CarRental.Migrations
 
                     b.Property<byte[]>("Image");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("OfferNameID");
 

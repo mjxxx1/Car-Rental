@@ -13,16 +13,15 @@ namespace CarRental
                 Cars = new HashSet<Car>();
         }
 
-        [Key]
         public int CarVersionID { get; set; }
         public int Passengers { get; set; }
-        public string Transmission { get; set; }
-        public string AirConditioning { get; set; }
+        public TransmissionType TransmissionType { get; set; }
+        public AirConditioningType AirConditioningType { get; set; }
         public string Model { get; set; }
         public string Brand { get; set; }
         public string Segment { get; set; }
         public string Type { get; set; }
-        public string Fuel { get; set; }
+        public FuelType FuelType { get; set; }
         public int Doors { get; set; }
         public int? BootCapacity { get; set; }
         public int? EnginePower { get; set; }
@@ -36,5 +35,26 @@ namespace CarRental
         //relation with OfferName
         public OfferName OfferName { get; set; }
         public int OfferNameID { get; set; }
+    }
+
+    public enum TransmissionType
+    {
+        manual = 1,
+        automatic = 2
+    }
+
+    public enum AirConditioningType
+    {
+        manual = 1,
+        automatic = 2
+    }
+
+    public enum FuelType
+    {
+        diesel = 1,
+        gasoline = 2,
+        electric = 3,
+        LPG = 4, 
+        hybrid = 5
     }
 }

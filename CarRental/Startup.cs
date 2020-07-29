@@ -34,11 +34,9 @@ namespace CarRental
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            var connection = @"Server=MARIUSZ-PC\SQLEXPRESS;Database=Car_Rental;Trusted_Connection=True;";
-            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CarRentalDatabase")));
 
-
-            services.AddSingleton<IApplicationDBContext, ApplicationDBContext>();
+            services.AddScoped<IApplicationDBContext, ApplicationDBContext>();
             services.AddMediatR(typeof(GetFilterCarsListQuery).GetTypeInfo().Assembly);
             services.AddMvc();
 

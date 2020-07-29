@@ -14,7 +14,7 @@ namespace CarRental.Migrations
                 {
                     OfferNameID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
                     Image = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
@@ -29,19 +29,19 @@ namespace CarRental.Migrations
                     CarVersionID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Passengers = table.Column<int>(nullable: false),
-                    Transmission = table.Column<string>(nullable: true),
-                    AirConditioning = table.Column<string>(nullable: true),
+                    TransmissionType = table.Column<int>(nullable: false),
+                    AirConditioningType = table.Column<int>(nullable: false),
                     Model = table.Column<string>(nullable: true),
                     Brand = table.Column<string>(nullable: true),
                     Segment = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: true),
-                    Fuel = table.Column<string>(nullable: true),
+                    FuelType = table.Column<int>(nullable: false),
                     Doors = table.Column<int>(nullable: false),
                     BootCapacity = table.Column<int>(nullable: true),
                     EnginePower = table.Column<int>(nullable: true),
                     FuelConsumptionPer100km = table.Column<float>(nullable: true),
                     EngineSize = table.Column<int>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
                     OfferNameID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -82,18 +82,20 @@ namespace CarRental.Migrations
                 name: "Cars",
                 columns: table => new
                 {
-                    VIN = table.Column<string>(nullable: false),
+                    CarID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    VIN = table.Column<string>(type: "char(17)", nullable: false),
                     RegistrationNumber = table.Column<string>(nullable: true),
                     DateOfFirstRegistration = table.Column<DateTime>(nullable: true),
                     DateOfPurchase = table.Column<DateTime>(nullable: true),
                     Color = table.Column<string>(nullable: true),
                     Status = table.Column<string>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
                     CarVersionID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cars", x => x.VIN);
+                    table.PrimaryKey("PK_Cars", x => x.CarID);
                     table.ForeignKey(
                         name: "FK_Cars_CarVersions_CarVersionID",
                         column: x => x.CarVersionID,

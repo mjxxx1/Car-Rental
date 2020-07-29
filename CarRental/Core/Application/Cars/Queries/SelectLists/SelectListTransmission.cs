@@ -18,7 +18,7 @@ namespace CarRental.Core.Application.Cars.Queries.SelectLists
 
         public void OnGet()
         {
-            options = new SelectList(_context.CarVersions, nameof(CarVersion.Transmission), nameof(CarVersion.Transmission));
+            options = new SelectList(_context.CarVersions, nameof(CarVersion.TransmissionType), nameof(CarVersion.TransmissionType));
         }
     }
 }

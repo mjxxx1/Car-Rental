@@ -8,7 +8,7 @@ namespace CarRental
 {
     public class Car
     {
-        [Key]
+        public int CarID { get; set; }
         public string VIN { get; set; }
         public string RegistrationNumber { get; set; }
         public DateTime? DateOfFirstRegistration { get; set; }
@@ -16,6 +16,7 @@ namespace CarRental
         public string Color { get; set; }
         public string Status { get; set; }
         public bool IsDeleted { get; set; }
+        //relation with CarVersion
         public CarVersion Version { get; set; }
         public int CarVersionID { get; set; }
     }

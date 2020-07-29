@@ -63,15 +63,15 @@ namespace CarRental
         private void assignDataFromDBToListBoxes(ref CarListDTO cLDTO)
         {
             cLDTO.transmissionType = _context.CarVersions
-             .OrderBy(p => p.Transmission)
-             .Select(p => p.Transmission)
+             .OrderBy(p => p.TransmissionType)
+             .Select(p => p.TransmissionType.ToString())
              .Distinct()
              .ToList();
             cLDTO.transmissionType.Insert(0, "all");
 
             cLDTO.airConditionerType = _context.CarVersions
-                .OrderBy(p => p.AirConditioning)
-                .Select(p => p.AirConditioning)
+                .OrderBy(p => p.AirConditioningType)
+                .Select(p => p.AirConditioningType.ToString())
                 .Distinct()
                 .ToList();
             cLDTO.airConditionerType.Insert(0, "all");
@@ -92,8 +92,8 @@ namespace CarRental
 
 
             cLDTO.fuelType = _context.CarVersions
-                 .OrderByDescending(p => p.Fuel)
-                 .Select(p => p.Fuel)
+                 .OrderByDescending(p => p.FuelType)
+                 .Select(p => p.FuelType.ToString())
                  .Distinct()
                  .ToList();
             cLDTO.fuelType.Insert(0, "all");
@@ -109,11 +109,11 @@ namespace CarRental
         private static IQueryable<OfferName> FilterOfferNames(FilterParameters parameters, IQueryable<OfferName> rowList)
         {
             IQueryable<OfferName> FilteredOfferNamesList = rowList
-                .Where(p => p.CarVersions.Any(q => (q.Transmission == parameters.TransmissionType || parameters.TransmissionType == "all")))
-                .Where(p => p.CarVersions.Any(q => (q.AirConditioning == parameters.AirConditionerType || parameters.AirConditionerType == "all")))
+                .Where(p => p.CarVersions.Any(q => (q.TransmissionType.ToString() == parameters.TransmissionType || parameters.TransmissionType == "all")))
+                .Where(p => p.CarVersions.Any(q => (q.AirConditioningType.ToString() == parameters.AirConditionerType || parameters.AirConditionerType == "all")))
                 .Where(p => p.CarVersions.Any(q => (q.Passengers.ToString() == parameters.Passengers || parameters.Passengers == "all")))
                 .Where(p => p.CarVersions.Any(q => (q.Segment == parameters.Segment || parameters.Segment == "all")))
-                .Where(p => p.CarVersions.Any(q => (q.Fuel == parameters.FuelType || parameters.FuelType == "all")));
+                .Where(p => p.CarVersions.Any(q => (q.FuelType.ToString() == parameters.FuelType || parameters.FuelType == "all")));
             //TODO Add Base
             //.Where(p => p.CarVersions.Any(q => (q.Fuel.FuelType == parameters.FuelType || parameters.FuelType == "all")))
             return FilteredOfferNamesList;
@@ -173,8 +173,8 @@ namespace CarRental
 
         private string ReturnTransmissionType(OfferName ON)
         {
-            bool HaveCarsManual = ON.CarVersions.Any(o => o.Transmission == "manual");
-            bool HaveCarsAutomatic = ON.CarVersions.Any(o => o.Transmission == "automatic");
+            bool HaveCarsManual = ON.CarVersions.Any(o => o.TransmissionType.ToString() == "manual");
+            bool HaveCarsAutomatic = ON.CarVersions.Any(o => o.TransmissionType.ToString() == "automatic");
             string answer = HaveCarsAutomatic ? "automatic" : (HaveCarsManual ? "manual" : null);
             answer = (HaveCarsManual && HaveCarsAutomatic) ? "manual / automatic" : answer;
             return answer;
@@ -182,8 +182,8 @@ namespace CarRental
 
         private string ReturnAirConditioningType(OfferName ON)
         {
-            bool HaveCarsManual = ON.CarVersions.Any(o => o.AirConditioning == "manual");
-            bool HaveCarsAutomatic = ON.CarVersions.Any(o => o.AirConditioning == "automatic");
+            bool HaveCarsManual = ON.CarVersions.Any(o => o.AirConditioningType.ToString() == "manual");
+            bool HaveCarsAutomatic = ON.CarVersions.Any(o => o.AirConditioningType.ToString() == "automatic");
             string answer = HaveCarsManual ? "manual" : "automatic";
             answer = (HaveCarsManual && HaveCarsAutomatic) ? "manual / automatic" : answer;
             return answer;
